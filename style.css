@@ -1,0 +1,29 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 100;
+
+  display: flex;
+  justify-content: center;
+}
+
+.logo-container {
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+}
+
+.small-logo {
+    width: 100px;
+    height: auto;
+    
+}
+img {
+  display: block;
+  background: transparent;
+}
