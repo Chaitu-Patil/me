@@ -1,98 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet">
-    <script src="script.js" defer></script>
-    <title>Chaitu Patil</title>
-    <style>
-        body {
-            
-            background-image: url("https://images.unsplash.com/photo-1710162734135-8dc148f53abe?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-            background-size: 2000px 1000px;
-            height: 1000px;
-            color:#363635;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chaitu Patil</title>
+
+  <link href="style.css" rel="stylesheet">
+  <script src="script.js" defer></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      background-image: url("https://images.unsplash.com/photo-1464618663641-bbdd760ae84a?q=80&w=1470&auto=format&fit=crop");
+      background-size: cover;
+      background-attachment: fixed;
+      color: #363635;
+    }
+  </style>
 </head>
+
 <body>
-  <main>
-    <div style="text-align: center;">
-        <span style="text-align: center;"><h1>Chaitu Patil</h1></span>
-    </div>
-    
+<div id="progress-container">
+  <div id="progress-bar"></div>
+</div>  
+  <div class="container">
 
-    <section>
-      <h2>Mathematics</h2>
-      <p>
-        I enjoy proof-based mathematics and problem solving through competitions.
-      </p>
-      <h3>Achievements:</h3>
+    <!-- Sidebar -->
+    <aside class="sidebar">
       <ul>
-        <li>
-          <a href="https://maa.org/student-programs/amc/" style="color: #363635;" target="_blank">AMC 8</a> <strong>Honor Roll</strong>
-            <div class="logo-container">
-                <img src="https://gcdnb.pbrd.co/images/RNlBsr7qQmdZ.png?o=1" alt="Logo" class="small-logo">
-            </div>
-        </li>
+        <li><a href="#mathematics">Mathematics</a></li>
+        <li><a href="#science-research">Science and Research</a></li>
+        <li><a href="#publicspeaking">Public Speaking</a></li>
       </ul>
-      <figure>
-        <figcaption>
-          Recognized for <em>strong mathematical reasoning</em> on a national contest.
-        </figcaption>
-      </figure>
-    </section>
+    </aside>
 
-    <section>
-      <h2>Science & Research</h2>
-      <p>
-        I participate in science fairs to apply research and problem-solving skills.
-      </p>
+    <!-- Main Content -->
+    <main class="content">
 
-      <h3>Achievements:</h3>
-      <ul>
-        <li>
-          1st Place at 
-          <a href="https://wssef.org/" style="color: #363635;" target="_blank"><strong>WSSEF</strong></a>
-             <div class="logo-container">
-                <img src="https://gcdnb.pbrd.co/images/GxgZPZ8Yw2M1.png?o=1" alt="Logo" class="small-logo">
-             </div>
-        </li>
-      </ul>
-      <figure>
-        <figcaption>
-          Awarded for an <em>original and impactful</em> science project.
-        </figcaption>
-      </figure>
-    </section>
+      <h1>Chaitu Patil</h1>
 
-    <section>
-      <h2>Public Speaking</h2>
-      <p>
-        I enjoy communicating ideas and engaging an audience.
-      </p>
+      <section id="mathematics" class="fade-in">
+        <h2>Mathematics</h2>
+        <p>
+          I enjoy mathematics for its emphasis on logical reasoning and deep understanding. Proof-based problems and competitions have taught me to refine ideas carefully and persist through challenging questions. For me, mathematics is a way to explore patterns and develop precise, structured thinking.
+        </p>
 
-      <h3>Achievements:</h3>
-      <ul>
-        <li>
-          1st Place Speech for 
-          <a href="https://www.toastmasters.org/" style="color: #363635;" target="_blank">Toastmasters</a>
-            <div class="logo-container">
-                <img src="https://gcdnb.pbrd.co/images/0SGQoK5WQOKM.png?o=1" alt="Logo" class="small-logo">
-             </div>
+        <h3>Achievements:</h3>
+        <p>
+          <a href="https://maa.org/student-programs/amc/" target="_blank">AMC 8</a>
+          <strong>Honor Roll</strong>
+        </p>
 
-           in the <strong>Greater Seattle Area</strong>
-        </li>
-      </ul>
+        <div class="logo-container">
+          <img src="https://gcdnb.pbrd.co/images/RNlBsr7qQmdZ.png?o=1"
+               alt="AMC Logo"
+               class="small-logo">
+        </div>
+      </section>
 
-      <figure>
-        <figcaption>
-          Recognized for <em>clarity, confidence, and storytelling</em>
-        </figcaption>
-        <br style="line-height: 2000px;">
-      </figure>
-    </section>
+      <section id="science-research" class="fade-in">
+        <h2>Science & Research</h2>
+        <p>
+          I am drawn to scientific research because it allows me to turn curiosity into evidence-based understanding. Through science fairs and independent projects, I enjoy designing experiments, analyzing results, and refining ideas through iteration. Research has taught me to think critically, question assumptions, and apply scientific reasoning to real-world problems.
+        </p>
+
+        <h3>Achievements:</h3>
+        <p>
+          1st Place at
+          <a href="https://wssef.org/" target="_blank"><strong>WSSEF</strong></a>
+        </p>
+
+        <div class="logo-container">
+          <img src="https://gcdnb.pbrd.co/images/GxgZPZ8Yw2M1.png?o=1"
+               alt="WSSEF Logo"
+               class="small-logo">
+        </div>
+      </section>
+
+      <section id="publicspeaking" class="fade-in">
+        <h2>Public Speaking</h2>
+        <p>
+          I enjoy public speaking as a way to communicate ideas clearly and connect with diverse audiences. Through competitive and club speaking, I have learned to structure arguments thoughtfully, adapt to feedback, and speak with confidence and purpose. Public speaking has strengthened my ability to explain complex ideas and engage others with clarity and intent.
+        </p>
+
+        <h3>Achievements:</h3>
+        <p>
+          1st Place Speech for
+          <a href="https://www.toastmasters.org/" target="_blank">Toastmasters</a>
+          in the <strong>Greater Seattle Area</strong>
+        </p>
+
+        <div class="logo-container">
+          <img src="https://gcdnb.pbrd.co/images/0SGQoK5WQOKM.png?o=1"
+               alt="Toastmasters Logo"
+               class="small-logo">
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+</body>
+</html>
+
   </main>
 
 </body>
