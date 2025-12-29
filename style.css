@@ -5,11 +5,8 @@ html, body {
 }
 
 body {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 100;
-
-  display: flex;
-  justify-content: center;
 }
 
 .logo-container {
@@ -24,3 +21,94 @@ body {
     
 }
 
+
+a:link {
+  color: #000000;
+}
+
+a:visited {
+  color: #777777;
+}
+
+
+a:hover {
+  color: #ffffff;
+}
+
+
+a:active {
+  color: #ffffff;
+}
+
+
+
+.container {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background-color: transparent;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  height: fit-content;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar a {
+    display: flex; 
+    padding: 10px 0;
+    text-decoration: none;
+    color: black;
+}
+
+.sidebar a {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.sidebar a:hover {
+  transform: translateX(5px);
+  color: #777777;
+}
+
+.content {
+  padding: 30px;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in {
+  transition-delay: 0.15s;
+}
+
+#progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: transparent;
+  z-index: 2000;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #777777;
+  transition: width 0.1s ease-out;
+}
