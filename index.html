@@ -1,44 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chaitu Patil</title>
 
-  <link href="style.css" rel="stylesheet">
-  <script src="script.js" defer></script>
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      background-color: rgb(236, 168, 73);
-      background-size: cover;
-      background-attachment: fixed;
-      color: #363635;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 
-<body>
-<div id="progress-container">
-  <div id="progress-bar"></div>
-</div>  
+<body class="light">
+
+  <!-- Theme crossfade overlay -->
+  <div id="theme-overlay"></div>
+
+  <!-- Scroll progress -->
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+
   <div class="container">
 
     <!-- Sidebar -->
     <aside class="sidebar">
       <ul>
         <li><a href="#mathematics">Mathematics</a></li>
-        <li><a href="#science-research">Science and Research</a></li>
+        <li><a href="#science-research">Science & Research</a></li>
         <li><a href="#publicspeaking">Public Speaking</a></li>
       </ul>
-      <button class="theme-toggle">
-  <span class="theme-icon">🌙</span>
-</button>
+
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <span class="toggle-thumb">🌙</span>
+      </button>
     </aside>
 
-    <!-- Main Content -->
+    <!-- Main content -->
     <main class="content">
 
       <h1>Chaitu Patil</h1>
@@ -46,7 +47,9 @@
       <section id="mathematics" class="fade-in">
         <h2>Mathematics</h2>
         <p>
-          I enjoy mathematics for its emphasis on logical reasoning and deep understanding. Proof-based problems and competitions have taught me to refine ideas carefully and persist through challenging questions. For me, mathematics is a way to explore patterns and develop precise, structured thinking.
+          I enjoy mathematics for its emphasis on logical reasoning and deep understanding.
+          Proof-based problems and competitions have taught me to refine ideas carefully
+          and persist through challenging questions.
         </p>
 
         <h3>Achievements:</h3>
@@ -56,35 +59,32 @@
         </p>
 
         <div class="logo-container">
-          <img src="https://gcdnb.pbrd.co/images/RNlBsr7qQmdZ.png?o=1"
-               alt="AMC Logo"
-               class="small-logo">
+          <img src="https://gcdnb.pbrd.co/images/RNlBsr7qQmdZ.png?o=1" class="small-logo">
         </div>
       </section>
 
       <section id="science-research" class="fade-in">
         <h2>Science & Research</h2>
         <p>
-          I am drawn to scientific research because it allows me to turn curiosity into evidence-based understanding. Through science fairs and independent projects, I enjoy designing experiments, analyzing results, and refining ideas through iteration. Research has taught me to think critically, question assumptions, and apply scientific reasoning to real-world problems.
+          I am drawn to scientific research because it allows me to turn curiosity
+          into evidence-based understanding through experimentation and iteration.
         </p>
 
         <h3>Achievements:</h3>
         <p>
-          1st Place at
-          <a href="https://wssef.org/" target="_blank"><strong>WSSEF</strong></a>
+          1st Place at <a href="https://wssef.org/" target="_blank"><strong>WSSEF</strong></a>
         </p>
 
         <div class="logo-container">
-          <img src="https://gcdnb.pbrd.co/images/GxgZPZ8Yw2M1.png?o=1"
-               alt="WSSEF Logo"
-               class="small-logo">
+          <img src="https://gcdnb.pbrd.co/images/GxgZPZ8Yw2M1.png?o=1" class="small-logo">
         </div>
       </section>
 
       <section id="publicspeaking" class="fade-in">
         <h2>Public Speaking</h2>
         <p>
-          I enjoy public speaking as a way to communicate ideas clearly and connect with diverse audiences. Through competitive and club speaking, I have learned to structure arguments thoughtfully, adapt to feedback, and speak with confidence and purpose. Public speaking has strengthened my ability to explain complex ideas and engage others with clarity and intent.
+          Public speaking allows me to communicate complex ideas clearly,
+          adapt to feedback, and connect with diverse audiences.
         </p>
 
         <h3>Achievements:</h3>
@@ -95,12 +95,12 @@
         </p>
 
         <div class="logo-container">
-          <img src="https://gcdnb.pbrd.co/images/0SGQoK5WQOKM.png?o=1"
-               alt="Toastmasters Logo"
-               class="small-logo">
+          <img src="https://gcdnb.pbrd.co/images/0SGQoK5WQOKM.png?o=1" class="small-logo">
         </div>
       </section>
-      <h7 style="text-align: right;">© 2025 by Chaitu Patil</h7>
+
+      <footer>© 2025 by Chaitu Patil</footer>
+
     </main>
   </div>
 </body>
