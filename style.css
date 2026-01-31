@@ -1,90 +1,171 @@
+/* ===============================
+   THEME VARIABLES
+================================ */
+
+:root {
+  /* Light (tan + white) */
+  --body-bg: #efe6da;
+  --sidebar-bg: #ffffff;
+
+  --text-main: #1f2937;
+  --text-muted: #1f2937;
+
+  --accent: #b45309;
+  --accent-soft: rgba(180, 83, 9, 0.15);
+
+  --border: rgba(0, 0, 0, 0.08);
+  --progress-gradient: linear-gradient(90deg, #b45309, #f59e0b);
+}
+
+[data-theme="dark"] {
+  /* Dark (navy + black) */
+  --body-bg: #121f46;
+  --sidebar-bg: #020617;
+
+  --text-main: #ffffff;
+  --text-muted: #e5e7eb;
+
+  --accent: #38bdf8;
+  --accent-soft: rgba(56, 189, 248, 0.18);
+
+  --border: rgba(255, 255, 255, 0.08);
+  --progress-gradient: linear-gradient(90deg, #38bdf8, #2e3fd7);
+}
+
+/* ===============================
+   GLOBAL
+================================ */
+
+* {
+  box-sizing: border-box;
+}
+
 html, body {
-  margin: 0;
-  padding: 0;
   height: 100%;
 }
 
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 100;
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Inter, sans-serif;
+  background-color: var(--body-bg);
+  color: var(--text-main);
+
+  transition:
+    background-color 0.45s ease,
+    color 0.35s ease;
 }
 
-.logo-container {
-    display: flex; 
-    align-items: center; 
-    gap: 10px; 
+/* --- Crossfade overlay (UX TIP) --- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: var(--body-bg);
+  z-index: -1;
+  transition: background-color 0.45s ease;
 }
 
-.small-logo {
-    width: 100px;
-    height: auto;
-    
-}
-
-
-a:link {
-  color: #000000;
-}
-
-a:visited {
-  color: #777777;
-}
-
-
-a:hover {
-  color: #ffffff;
-}
-
-
-a:active {
-  color: #ffffff;
-}
-
-
+/* ===============================
+   LAYOUT
+================================ */
 
 .container {
   display: grid;
-  grid-template-columns: 260px 1fr;
+  grid-template-columns: 280px 1fr;
   min-height: 100vh;
 }
 
+/* ===============================
+   SIDEBAR
+================================ */
+
 .sidebar {
-  background-color: transparent;
-  padding: 20px;
+  padding: 24px;
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
   position: sticky;
   top: 0;
-  height: fit-content;
+  height: 100vh;
+
+  transition: background-color 0.4s ease;
 }
 
 .sidebar ul {
-    list-style-type: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
+  margin-top: 28px;
 }
 
 .sidebar a {
-    display: flex; 
-    padding: 10px 0;
-    text-decoration: none;
-    color: black;
-}
-
-.sidebar a {
-  transition: transform 0.2s ease, color 0.2s ease;
+  display: flex;
+  align-items: center;
+  padding: 10px 14px;
+  margin-bottom: 6px;
+  border-radius: 12px;
+  color: var(--text-main);
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease;
 }
 
 .sidebar a:hover {
-  transform: translateX(5px);
-  color: #777777;
+  background-color: var(--accent-soft);
+  transform: translateX(4px);
 }
 
+.sidebar a.active {
+  background-color: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ===============================
+   THEME TOGGLE
+================================ */
+
+.theme-toggle {
+  margin-top: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+
+  transition:
+    transform 0.4s ease,
+    background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: var(--accent-soft);
+  transform: rotate(20deg) scale(1.05);
+}
+
+.theme-icon {
+  font-size: 20px;
+  transition: transform 0.5s ease;
+}
+
+[data-theme="dark"] .theme-icon {
+  transform: rotate(180deg);
+}
+
+/* ===============================
+   CONTENT
+================================ */
+
 .content {
-  padding: 30px;
+  padding: 40px 48px;
+  max-width: 1100px;
 }
 
 .fade-in {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .fade-in.show {
@@ -92,23 +173,21 @@ a:active {
   transform: translateY(0);
 }
 
-.fade-in {
-  transition-delay: 0.15s;
-}
+/* ===============================
+   PROGRESS BAR
+================================ */
 
 #progress-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 5px;
-  background-color: transparent;
+  height: 4px;
   z-index: 2000;
 }
 
 #progress-bar {
   height: 100%;
   width: 0%;
-  background-color: #777777;
-  transition: width 0.1s ease-out;
+  background: var(--progress-gradient);
 }
