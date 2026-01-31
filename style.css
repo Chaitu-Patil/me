@@ -1,171 +1,147 @@
-/* ===============================
-   THEME VARIABLES
-================================ */
-
+/* ---------- ROOT VARIABLES ---------- */
 :root {
-  /* Light (tan + white) */
-  --body-bg: #efe6da;
+  --transition-fast: 0.25s ease;
+  --transition-slow: 0.6s ease;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ---------- THEME COLORS ---------- */
+body.light {
+  --body-gradient:
+    linear-gradient(135deg,
+      #f3d6a4,
+      #fdb353,
+      #cd975d);
+
   --sidebar-bg: #ffffff;
-
-  --text-main: #1f2937;
-  --text-muted: #1f2937;
-
-  --accent: #b45309;
-  --accent-soft: rgba(180, 83, 9, 0.15);
-
-  --border: rgba(0, 0, 0, 0.08);
-  --progress-gradient: linear-gradient(90deg, #b45309, #f59e0b);
+  --text-color: #1f1f1f;
+  --accent: #9c6b2f;
 }
 
-[data-theme="dark"] {
-  /* Dark (navy + black) */
-  --body-bg: #121f46;
-  --sidebar-bg: #020617;
+body.dark {
+  --body-gradient:
+    linear-gradient(135deg,
+      #0b1f3a,
+      #3c6aa7,
+      #1a4c58);
 
-  --text-main: #ffffff;
-  --text-muted: #e5e7eb;
-
-  --accent: #38bdf8;
-  --accent-soft: rgba(56, 189, 248, 0.18);
-
-  --border: rgba(255, 255, 255, 0.08);
-  --progress-gradient: linear-gradient(90deg, #38bdf8, #2e3fd7);
+  --sidebar-bg: #000000;
+  --text-color: #cdd3dd;
+  --accent: #7fb6ff;
 }
 
-/* ===============================
-   GLOBAL
-================================ */
-
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-}
-
+/* ---------- BASE ---------- */
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Inter, sans-serif;
-  background-color: var(--body-bg);
-  color: var(--text-main);
-
-  transition:
-    background-color 0.45s ease,
-    color 0.35s ease;
+  background: var(--body-gradient);
+  background-attachment: fixed;
+  color: var(--text-color);
+  transition: background var(--transition-slow), color var(--transition-fast);
 }
 
-/* --- Crossfade overlay (UX TIP) --- */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: var(--body-bg);
-  z-index: -1;
-  transition: background-color 0.45s ease;
+a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
 }
 
-/* ===============================
-   LAYOUT
-================================ */
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+}
 
+/* ---------- LAYOUT ---------- */
 .container {
-  display: grid;
-  grid-template-columns: 280px 1fr;
+  display: flex;
   min-height: 100vh;
 }
 
-/* ===============================
-   SIDEBAR
-================================ */
+.content {
+  flex: 1;
+  padding: 3rem 4rem;
+}
 
+/* ---------- SIDEBAR ---------- */
 .sidebar {
-  padding: 24px;
-  background-color: var(--sidebar-bg);
-  border-right: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  height: 100vh;
-
-  transition: background-color 0.4s ease;
+  width: 240px;
+  background: var(--sidebar-bg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* align items to top */
+  transition: background var(--transition-fast);
 }
 
 .sidebar ul {
   list-style: none;
   padding: 0;
-  margin-top: 28px;
+  margin: 0;
 }
 
 .sidebar a {
-  display: flex;
-  align-items: center;
-  padding: 10px 14px;
-  margin-bottom: 6px;
-  border-radius: 12px;
-  color: var(--text-main);
-  transition:
-    background-color 0.2s ease,
-    transform 0.15s ease;
+  display: block;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  color: var(--text-color);
+  font-weight: 500;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.4s ease;
 }
 
+/* Animate sidebar links in sequence */
+.sidebar a.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Hover effect */
 .sidebar a:hover {
-  background-color: var(--accent-soft);
+  background: var(--accent-soft);
   transform: translateX(4px);
 }
 
 .sidebar a.active {
-  background-color: var(--accent-soft);
-  color: var(--accent);
+  background: rgba(0,0,0,0.08);
   font-weight: 600;
 }
 
-/* ===============================
-   THEME TOGGLE
-================================ */
-
+/* ---------- THEME TOGGLE ---------- */
 .theme-toggle {
-  margin-top: 20px;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: transparent;
-  display: grid;
-  place-items: center;
+  margin-top: 2rem; /* now below links */
+  width: 56px;
+  height: 30px;
+  background: #ccc;
+  border-radius: 999px;
+  border: none;
   cursor: pointer;
-
-  transition:
-    transform 0.4s ease,
-    background-color 0.3s ease;
+  position: relative;
+  align-self: start; /* left align */
+  transition: transform var(--transition-fast), background var(--transition-fast);
 }
 
-.theme-toggle:hover {
-  background-color: var(--accent-soft);
-  transform: rotate(20deg) scale(1.05);
+.toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  width: 24px;
+  height: 24px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
 }
 
-.theme-icon {
-  font-size: 20px;
-  transition: transform 0.5s ease;
+body.dark .toggle-thumb {
+  transform: translateX(26px);
 }
-
-[data-theme="dark"] .theme-icon {
-  transform: rotate(180deg);
-}
-
-/* ===============================
-   CONTENT
-================================ */
-
-.content {
-  padding: 40px 48px;
-  max-width: 1100px;
-}
-
+/* ---------- FADE-IN ---------- */
 .fade-in {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
 }
 
 .fade-in.show {
@@ -173,21 +149,49 @@ body::before {
   transform: translateY(0);
 }
 
-/* ===============================
-   PROGRESS BAR
-================================ */
+/* ---------- LOGOS ---------- */
+.logo-container {
+  margin-top: 1rem;
+}
 
+.small-logo {
+  height: 50px;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  margin-top: 4rem;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* ---------- PROGRESS BAR ---------- */
 #progress-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 4px;
-  z-index: 2000;
+  z-index: 999;
 }
 
 #progress-bar {
   height: 100%;
-  width: 0%;
-  background: var(--progress-gradient);
+  width: 0;
+  background: var(--accent);
+}
+
+/* ---------- THEME OVERLAY ---------- */
+#theme-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: var(--body-gradient);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 998;
+}
+
+#theme-overlay.active {
+  opacity: 1;
 }
