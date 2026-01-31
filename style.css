@@ -5,29 +5,29 @@
   font-family: 'Inter', system-ui, sans-serif;
 }
 
-/* ---------- THEME COLORS ---------- */
+/* ---------- THEME COLORS / GRADIENT ---------- */
 body.light {
-  --body-gradient:
-    linear-gradient(135deg,
-      #f3d6a4,
-      #fdb353,
-      #cd975d);
-
+  --body-gradient: linear-gradient(135deg,
+    #fbe5c0,   /* light cream */
+    #f7a35c,   /* warm orange */
+    #d97c4b    /* deep caramel */
+  );
   --sidebar-bg: #ffffff;
   --text-color: #1f1f1f;
   --accent: #9c6b2f;
+  --accent-soft: rgba(156,107,47,0.2);
 }
 
 body.dark {
-  --body-gradient:
-    linear-gradient(135deg,
-      #0b1f3a,
-      #3c6aa7,
-      #1a4c58);
-
+  --body-gradient: linear-gradient(135deg,
+    #5578a7,   /* dark navy */
+    #26456d,   /* medium blue */
+    #0d2039    /* slate blue */
+  );
   --sidebar-bg: #000000;
-  --text-color: #cdd3dd;
+  --text-color: #ffffff;
   --accent: #7fb6ff;
+  --accent-soft: rgba(127,182,255,0.2);
 }
 
 /* ---------- BASE ---------- */
@@ -37,6 +37,15 @@ body {
   background-attachment: fixed;
   color: var(--text-color);
   transition: background var(--transition-slow), color var(--transition-fast);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: var(--body-gradient);
+  z-index: -1;
+  transition: background var(--transition-slow);
 }
 
 a {
@@ -67,8 +76,12 @@ h1, h2, h3 {
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* align items to top */
+  justify-content: flex-start;
   transition: background var(--transition-fast);
+  position: sticky;
+  top: 0; /* keeps it stuck at top */
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .sidebar ul {
@@ -89,13 +102,11 @@ h1, h2, h3 {
   transition: all 0.4s ease;
 }
 
-/* Animate sidebar links in sequence */
 .sidebar a.show {
   opacity: 1;
   transform: translateX(0);
 }
 
-/* Hover effect */
 .sidebar a:hover {
   background: var(--accent-soft);
   transform: translateX(4px);
@@ -108,7 +119,7 @@ h1, h2, h3 {
 
 /* ---------- THEME TOGGLE ---------- */
 .theme-toggle {
-  margin-top: 2rem; /* now below links */
+  margin-top: 2rem;
   width: 56px;
   height: 30px;
   background: #ccc;
@@ -116,7 +127,7 @@ h1, h2, h3 {
   border: none;
   cursor: pointer;
   position: relative;
-  align-self: start; /* left align */
+  align-self: start;
   transition: transform var(--transition-fast), background var(--transition-fast);
 }
 
@@ -137,6 +148,7 @@ h1, h2, h3 {
 body.dark .toggle-thumb {
   transform: translateX(26px);
 }
+
 /* ---------- FADE-IN ---------- */
 .fade-in {
   opacity: 0;
@@ -155,7 +167,13 @@ body.dark .toggle-thumb {
 }
 
 .small-logo {
-  height: 50px;
+  height: 70px; /* larger than before */
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.small-logo:hover {
+  transform: scale(1.08);
+  filter: drop-shadow(0 3px 8px rgba(0,0,0,0.25));
 }
 
 /* ---------- FOOTER ---------- */
